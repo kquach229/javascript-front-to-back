@@ -1,4 +1,5 @@
-const promise = new Promise((resolve, reject) => {
+// resolve and reject promise
+const todosPromise = new Promise((resolve, reject) => {
   fetch('https://jsonplaceholder.typicode.com/todos/')
     .then((res) => {
       if (!res.ok) {
@@ -14,10 +15,23 @@ const promise = new Promise((resolve, reject) => {
     });
 });
 
-promise
+todosPromise
   .then((data) => {
     console.log(data);
   })
   .catch((error) => {
     console.error(error);
   });
+
+// async await
+async function getPosts() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const posts = await response.json();
+    console.log(posts);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+getPosts();

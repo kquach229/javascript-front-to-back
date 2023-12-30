@@ -7,7 +7,7 @@ function sayOne() {
 function sayTwo(callback) {
   setTimeout(() => {
     console.log(callback());
-  }, 5000);
+  }, 2000);
   console.log('say two');
 }
 
